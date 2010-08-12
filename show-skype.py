@@ -6,11 +6,11 @@ import dbus, sys, getopt
 def main(argv):
 	# option handling inspired by:
 	# http://www.faqs.org/docs/diveintopython/kgp_commandline.html
-	_debug = 1
+	_debug = 0
 	try:
 	  opts, args = getopt.getopt(argv, "d", ["debug"])
 	except getopt.GetoptError:
-	  sys.exit("Unkown option")
+	  sys.exit("Could not parse options.")
 	for opt, arg in opts:
 	  if opt in ("-d", "--debug"):
 	    _debug = 1
@@ -50,5 +50,5 @@ def main(argv):
 	return 0
 
 if __name__ == "__main__":
-	main(sys.argv)
+  main(sys.argv[1:])
 
